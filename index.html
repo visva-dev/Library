@@ -7,6 +7,28 @@
   <title>Library</title>
 </head>
 <body>
+  <h1>Library Project</h1>
+  <form>
+    <div class="form-group">
+      <label for="book-title">Title:</label>
+      <input id="book-title" name="book-title" type="text" placeholder="Book Title..." required>
+    </div>
+    <div class="form-group">
+      <label for="book-author">Author:</label>
+      <input id="book-author" name="book-author" type="text" placeholder="Book Author..." required>
+    </div>
+    <div class="form-group">
+      <label for="book-pages">Pages:</label>
+      <input id="book-pages" name="book-pages" type="text" placeholder="Book Pages..." required>
+    </div>
+    
+    <input type="radio" id="read" name="read" value="read">
+  <label for="male">Read</label><br>
+  <input type="radio" id="not-read" name="not-read" value="not-read">
+  <label for="female">Not Read</label><br>
+
+  <button type="submit">Add Book</button>
+  </form>
   
   <script src="script.js"></script>
 </body>
