@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(141, 111, 75);
+}
+
+.title1 {
+  margin: auto;
+  padding-top: 50px;
+  text-align: center;
+  color: #111;
+
+}
+
+form {
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  background-color: chocolate;
+  margin: auto;
+  padding-top: 30px;
+}
+
+.form-group {
+  font-size: x-large;
+  line-height: 4rem;
+}
+
+button {
+  margin: 20px;
+  /* background-color: darkgreen; */
+}
