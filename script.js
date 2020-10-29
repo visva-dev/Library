@@ -6,6 +6,7 @@ class Book {
   }
   static displayBooks() {
     const AddedBooks = [];
+    
     const books = AddedBooks;
     books.forEach((book) => Book.AddBookToList(book));
   }
