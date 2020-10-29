@@ -4,9 +4,9 @@ class Book {
     this.author = author;
     this.pages = pages;
   }
+
   static displayBooks() {
     const AddedBooks = [];
-    
     const books = AddedBooks;
     books.forEach((book) => Book.AddBookToList(book));
   }
