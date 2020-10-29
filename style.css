@@ -30,3 +30,12 @@ button {
   margin: 20px;
   /* background-color: darkgreen; */
 }
+
+.table {
+  margin: auto;
+}
+
+.table th {
+  padding-right: 20px;
+  font-size: 1.5rem;
+}

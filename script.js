@@ -8,18 +8,7 @@ class Book {
 
 class Browser {
   static displayBooks() {
-    const AddedBooks = [
-      {
-        title: 'Books One',
-        author: 'Book one author',
-        pages: 500,
-      },
-      {
-        title: 'Book Two title',
-        author: 'Book two author',
-        pages: 200,
-      },
-    ];
+    const AddedBooks = [];
     const books = AddedBooks;
     books.forEach((book) => Browser.AddBookToList(book));
   }
@@ -32,9 +21,21 @@ class Browser {
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.pages}</td>
-    <td><button>Delete</button></td>
+    <td><a href="#" class="delete">Delete</a></td>
     `;
     list.appendChild(row);
+  }
+
+  static deleteBook(element) {
+    if (element.classList.contains('delete')) {
+      element.parentElement.parentElement.remove();
+    }
+  }
+
+  static clearInputs() {
+    document.querySelector('#book-title').value = '';
+    document.querySelector('#book-author').value = '';
+    document.querySelector('#book-pages').value = '';
   }
 }
 
@@ -48,4 +49,9 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const book = new Book(title, author, pages);
 
   Browser.AddBookToList(book);
-})
+  Browser.clearInputs();
+});
+
+document.querySelector('#book-list').addEventListener('click', (e) => {
+  Browser.deleteBook(e.target);
+});
