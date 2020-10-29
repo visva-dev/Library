@@ -1,26 +1,41 @@
-let myLibrary = [];
-
-
-function Book(title, author, pages) {
-  this.title = title
-  this.author = author
-  this.pages = pages
-  // this.sayName = function() {
-  //   console.log(name)
-  // }
+class Book {
+  constructor(title, author, pages, status) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+  }
 }
 
-function addBookToLibrary() {
-  // do stuff here
-  book = []
-  book.title.push()
-  let name = window.prompt("Enter your name: ");
-alert("Your name is " + name);
+class Browser {
+  static displayBooks() {
+    const AddedBooks = [
+      {
+        title: 'Books One',
+        author: 'Book one author',
+        pages: 500,
+      },
+      {
+        title: 'Book Two title',
+        author: 'Book two author',
+        pages: 200,
+      },
+    ];
+    const books = AddedBooks;
+    books.forEach((book) => Browser.AddBookToList(book));
+  }
+
+  static AddBookToList(book) {
+    const list = document.querySelector('#book-list');
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+    <td>${book.title}</td>
+    <td>${book.author}</td>
+    <td>${book.pages}</td>
+    <td><button>Delete</button></td>
+    `;
+    list.appendChild(row);
+  }
 }
 
-const player1 = new Player('steve', 'X')
-const player2 = new Player('also steve', 'O')
-player1.sayName() // logs 'steve'
-player2.sayName() // logs 'also steve'
-
-theHobbit.info() // "The Hobbit by J.R.R. Tolkien, 295 pages, not read yet"
+document.addEventListener('DOMContentLoaded', Browser.displayBooks);
