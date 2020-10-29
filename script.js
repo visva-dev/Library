@@ -1,16 +1,13 @@
 class Book {
-  constructor(title, author, pages, status) {
+  constructor(title, author, pages) {
     this.title = title;
     this.author = author;
     this.pages = pages;
   }
-}
-
-class Browser {
   static displayBooks() {
     const AddedBooks = [];
     const books = AddedBooks;
-    books.forEach((book) => Browser.AddBookToList(book));
+    books.forEach((book) => Book.AddBookToList(book));
   }
 
   static AddBookToList(book) {
@@ -39,7 +36,7 @@ class Browser {
   }
 }
 
-document.addEventListener('DOMContentLoaded', Browser.displayBooks);
+document.addEventListener('DOMContentLoaded', Book.displayBooks);
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const title = document.querySelector('#book-title').value;
@@ -48,10 +45,10 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
   const book = new Book(title, author, pages);
 
-  Browser.AddBookToList(book);
-  Browser.clearInputs();
+  Book.AddBookToList(book);
+  Book.clearInputs();
 });
 
 document.querySelector('#book-list').addEventListener('click', (e) => {
-  Browser.deleteBook(e.target);
+  Book.deleteBook(e.target);
 });
