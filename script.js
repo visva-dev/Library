@@ -39,3 +39,13 @@ class Browser {
 }
 
 document.addEventListener('DOMContentLoaded', Browser.displayBooks);
+document.querySelector('#book-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const title = document.querySelector('#book-title').value;
+  const author = document.querySelector('#book-author').value;
+  const pages = document.querySelector('#book-pages').value;
+
+  const book = new Book(title, author, pages);
+
+  Browser.AddBookToList(book);
+})
