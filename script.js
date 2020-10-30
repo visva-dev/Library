@@ -26,15 +26,6 @@ class Book {
     list.appendChild(row);
   }
 
-  static validButton() {
-    const valid = false;
-    if (document.getElementsByName('status').checked) {
-      valid = true;
-    } else {
-      valid = false;
-    }
-  }
-
   static deleteBook(element) {
     if (element.classList.contains('delete')) {
       element.parentElement.parentElement.remove();
@@ -55,9 +46,6 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const author = document.querySelector('#book-author').value;
   const pages = document.querySelector('#book-pages').value;
   const status = document.getElementById('status').value;
-  // const correctstatus = document.getElementById('not-read').value;
-  // console.log(status).value;
-  // console.log(correctstatus).value;
   const book = new Book(title, author, pages, status);
 
   Book.AddBookToList(book);
