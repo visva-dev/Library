@@ -40,10 +40,12 @@
         />
       </div>
 
-      <input type="radio" id="read" name="status" value="read" />
-      <label for="read">Read</label><br />
-      <input type="radio" id="not-read" name="status" value="not-read" />
-      <label for="not-read">Not Read</label><br />
+      <div class="select">
+        <select name="status" id="status">
+          <option value="read">Read</option>
+          <option value="not-read">Not-Read</option>
+        </select>
+      </div>
 
       <button type="submit">Add Book</button>
     </form>

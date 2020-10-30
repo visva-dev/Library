@@ -26,15 +26,13 @@ class Book {
     list.appendChild(row);
   }
 
-  static validButton(){
+  static validButton() {
     const valid = false;
-    if(document.getElementsByName('status').checked){
-      valid = true
+    if (document.getElementsByName('status').checked) {
+      valid = true;
+    } else {
+      valid = false;
     }
-    else {
-      alert('select the status')
-    }
-
   }
 
   static deleteBook(element) {
@@ -56,15 +54,14 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const title = document.querySelector('#book-title').value;
   const author = document.querySelector('#book-author').value;
   const pages = document.querySelector('#book-pages').value;
-  const status = document.getElementById('read') ;
-  const correctstatus = document.getElementById('not-read');
-  console.log(status);
-  console.log(correctstatus);
-  const book = new Book(title, author, pages, status ,);
+  const status = document.getElementById('status').value;
+  // const correctstatus = document.getElementById('not-read').value;
+  // console.log(status).value;
+  // console.log(correctstatus).value;
+  const book = new Book(title, author, pages, status);
 
   Book.AddBookToList(book);
   Book.clearInputs();
-
 });
 
 document.querySelector('#book-list').addEventListener('click', (e) => {
