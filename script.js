@@ -7,12 +7,6 @@ class Book {
   }
 }
 
-function displayBooks() {
-  const AddedBooks = [];
-  const books = AddedBooks;
-  books.forEach((book) => AddBookToList(book));
-}
-
 function AddBookToList(book) {
   const list = document.querySelector('#book-list');
   const row = document.createElement('tr');
@@ -26,6 +20,13 @@ function AddBookToList(book) {
     <td> <button class="btn btn-success changestatus" value='${book.title}${book.pages}'> change book status</button></td>
     `;
   list.appendChild(row);
+  displayBooks();
+}
+
+function displayBooks() {
+  const AddedBooks = [];
+  const books = AddedBooks;
+  books.forEach((book) => AddBookToList(book));
 }
 
 function deleteBook(element) {
@@ -35,7 +36,7 @@ function deleteBook(element) {
 }
 
 function change(e) {
-  let rr = document.getElementById(e.target.value);
+  const rr = document.getElementById(e.target.value);
   if (rr.innerHTML === 'Read') {
     rr.innerHTML = 'Not-Read';
   } else {
@@ -58,8 +59,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const book = new Book(title, author, pages, status);
 
   AddBookToList(book);
-  var el = document.getElementById('book-list'),
-  elClone = el.cloneNode(true);
+  let el = document.getElementById('book-list'),
+    elClone = el.cloneNode(true);
   el.parentNode.replaceChild(elClone, el);
   const butts = document.querySelectorAll('.changestatus');
   butts.forEach((button) => {
