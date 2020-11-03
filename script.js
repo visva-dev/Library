@@ -59,8 +59,8 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const book = new Book(title, author, pages, status);
 
   AddBookToList(book);
-  let el = document.getElementById('book-list'),
-    elClone = el.cloneNode(true);
+  const el = document.getElementById('book-list');
+  const elClone = el.cloneNode(true);
   el.parentNode.replaceChild(elClone, el);
   const butts = document.querySelectorAll('.changestatus');
   butts.forEach((button) => {
