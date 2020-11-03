@@ -19,8 +19,7 @@ function AddBookToList(book) {
     <td><a href="#" class="delete">Delete</a></td>
     <td> <button class="btn btn-success changestatus" value='${book.title}${book.pages}'> change book status</button></td>
     `;
-  list.appendChild(row);
-  
+  list.appendChild(row);  
 }
 
 function displayBooks() {
