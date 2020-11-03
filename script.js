@@ -7,53 +7,48 @@ class Book {
   }
 }
 
-  function displayBooks() {
-    const AddedBooks = [];
-    const books = AddedBooks;
-    books.forEach((book) => AddBookToList(book));
-  }
+function displayBooks() {
+  const AddedBooks = [];
+  const books = AddedBooks;
+  books.forEach((book) => AddBookToList(book));
+}
 
-  function AddBookToList(book) {
-    const list = document.querySelector('#book-list');
-    const row = document.createElement('tr');
+function AddBookToList(book) {
+  const list = document.querySelector('#book-list');
+  const row = document.createElement('tr');
 
-    row.innerHTML = `
+  row.innerHTML = `
     <td>${book.title}</td>
     <td>${book.author}</td>
     <td>${book.pages}</td>
-    <td>${book.status}</td>
+    <td class="bookstatus" id='${book.title}${book.pages}'>${book.status}</td>
     <td><a href="#" class="delete">Delete</a></td>
-    <td> <button class="btn btn-success" onclick="changest()" > change book status</button></td>
+    <td> <button class="btn btn-success changestatus" value='${book.title}${book.pages}'> change book status</button></td>
     `;
-    list.appendChild(row);
-  }
-
-  function changeStatus(e) {
-  const index = myLibrary.findIndex((x) => x.id === Number(e.target.className));
-  myLibrary[index].readStatus();
+  list.appendChild(row);
 }
 
-
-  // function changeReadStatus(bookIndex) {
-  //   const book = new Book(...Object.values(books[bookIndex]));
-  //   book.toggleRead();
-  //   book[bookIndex] = book;
-  //   displayBooks();
-  // }
-
-  function deleteBook(element) {
-    if (element.classList.contains('delete')) {
-      element.parentElement.parentElement.remove();
-    }
+function deleteBook(element) {
+  if (element.classList.contains('delete')) {
+    element.parentElement.parentElement.remove();
   }
+}
 
-  function clearInputs() {
-    document.querySelector('#book-title').value = '';
-    document.querySelector('#book-author').value = '';
-    document.querySelector('#book-pages').value = '';
+function change(e) {
+  let rr = document.getElementById(e.target.value);
+  if (rr.innerHTML === 'Read') {
+    rr.innerHTML = 'Not-Read';
+  } else {
+    rr.innerHTML = 'Read';
   }
+}
 
-// document.addEventListener('DOMContentLoaded', Book.displayBooks);
+function clearInputs() {
+  document.querySelector('#book-title').value = '';
+  document.querySelector('#book-author').value = '';
+  document.querySelector('#book-pages').value = '';
+}
+
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const title = document.querySelector('#book-title').value;
@@ -63,9 +58,17 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const book = new Book(title, author, pages, status);
 
   AddBookToList(book);
+  var el = document.getElementById('book-list'),
+  elClone = el.cloneNode(true);
+  el.parentNode.replaceChild(elClone, el);
+  const butts = document.querySelectorAll('.changestatus');
+  butts.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      change(e);
+    });
+  });
   clearInputs();
 });
-
 document.querySelector('#book-list').addEventListener('click', (e) => {
   deleteBook(e.target);
 });
