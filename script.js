@@ -20,7 +20,7 @@ function AddBookToList(book) {
     <td> <button class="btn btn-success changestatus" value='${book.title}${book.pages}'> change book status</button></td>
     `;
   list.appendChild(row);
-  displayBooks();
+  
 }
 
 function displayBooks() {
@@ -59,9 +59,6 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const book = new Book(title, author, pages, status);
 
   AddBookToList(book);
-  const el = document.getElementById('book-list');
-  const elClone = el.cloneNode(true);
-  el.parentNode.replaceChild(elClone, el);
   const butts = document.querySelectorAll('.changestatus');
   butts.forEach((button) => {
     button.addEventListener('click', (e) => {
@@ -72,4 +69,5 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 });
 document.querySelector('#book-list').addEventListener('click', (e) => {
   deleteBook(e.target);
+  displayBooks();
 });
