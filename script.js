@@ -5,14 +5,15 @@ class Book {
     this.pages = pages;
     this.status = status;
   }
+}
 
-  static displayBooks() {
+  function displayBooks() {
     const AddedBooks = [];
     const books = AddedBooks;
-    books.forEach((book) => Book.AddBookToList(book));
+    books.forEach((book) => AddBookToList(book));
   }
 
-  static AddBookToList(book) {
+  function AddBookToList(book) {
     const list = document.querySelector('#book-list');
     const row = document.createElement('tr');
 
@@ -22,24 +23,37 @@ class Book {
     <td>${book.pages}</td>
     <td>${book.status}</td>
     <td><a href="#" class="delete">Delete</a></td>
+    <td> <button class="btn btn-success" onclick="changest()" > change book status</button></td>
     `;
     list.appendChild(row);
   }
 
-  static deleteBook(element) {
+  function changeStatus(e) {
+  const index = myLibrary.findIndex((x) => x.id === Number(e.target.className));
+  myLibrary[index].readStatus();
+}
+
+
+  // function changeReadStatus(bookIndex) {
+  //   const book = new Book(...Object.values(books[bookIndex]));
+  //   book.toggleRead();
+  //   book[bookIndex] = book;
+  //   displayBooks();
+  // }
+
+  function deleteBook(element) {
     if (element.classList.contains('delete')) {
       element.parentElement.parentElement.remove();
     }
   }
 
-  static clearInputs() {
+  function clearInputs() {
     document.querySelector('#book-title').value = '';
     document.querySelector('#book-author').value = '';
     document.querySelector('#book-pages').value = '';
   }
-}
 
-document.addEventListener('DOMContentLoaded', Book.displayBooks);
+// document.addEventListener('DOMContentLoaded', Book.displayBooks);
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   e.preventDefault();
   const title = document.querySelector('#book-title').value;
@@ -48,10 +62,10 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const status = document.getElementById('status').value;
   const book = new Book(title, author, pages, status);
 
-  Book.AddBookToList(book);
-  Book.clearInputs();
+  AddBookToList(book);
+  clearInputs();
 });
 
 document.querySelector('#book-list').addEventListener('click', (e) => {
-  Book.deleteBook(e.target);
+  deleteBook(e.target);
 });
