@@ -1,13 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Library</title>
-</head>
-<body>
-  
-  <script src="script.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Library</title>
+  </head>
+  <body>
+    <h1 class="title1">Library Project</h1>
+    <form id="book-form">
+      <div class="form-group">
+        <label for="book-title">Title:</label>
+        <input
+          id="book-title"
+          name="book-title"
+          type="text"
+          placeholder="Book Title..."
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="book-author">Author:</label>
+        <input
+          id="book-author"
+          name="book-author"
+          type="text"
+          placeholder="Book Author..."
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="book-pages">Pages:</label>
+        <input
+          id="book-pages"
+          name="book-pages"
+          type="text"
+          placeholder="Book Pages..."
+          required
+        />
+      </div>
+
+      <div class="select">
+        <select name="status" id="status">
+          <option value="Read">Read</option>
+          <option value="Not-Read">Not-Read</option>
+        </select>
+      </div>
+
+      <button type="submit">Add Book</button>
+    </form>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Pages</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="book-list"></tbody>
+    </table>
+
+    <script src="script.js"></script>
+  </body>
 </html>

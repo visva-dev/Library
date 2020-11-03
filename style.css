@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(141, 111, 75);
+}
+
+.title1 {
+  margin: auto;
+  padding-top: 50px;
+  text-align: center;
+  color: #111;
+}
+
+form {
+  text-align: center;
+  width: 400px;
+  height: 400px;
+  background-color: rgb(196, 88, 12);
+  margin: auto;
+  padding-top: 30px;
+}
+
+.form-group {
+  font-size: x-large;
+  line-height: 4rem;
+}
+
+button {
+  margin: 20px;
+}
+
+.table {
+  margin: auto;
+}
+
+.table th {
+  padding-right: 20px;
+  font-size: 1.5rem;
+}
