@@ -6,7 +6,7 @@ class Book {
     this.status = status;
   }
 }
-
+// User of factory functions starts here
 function AddBookToList(book) {
   const list = document.querySelector('#book-list');
   const row = document.createElement('tr');
@@ -55,8 +55,9 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const author = document.querySelector('#book-author').value;
   const pages = document.querySelector('#book-pages').value;
   const status = document.getElementById('status').value;
+  // Creating object using Constructor function
   const book = new Book(title, author, pages, status);
-
+// --------------------------------------------
   AddBookToList(book);
   const butts = document.querySelectorAll('.changestatus');
   butts.forEach((button) => {
