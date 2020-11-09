@@ -1,3 +1,4 @@
+// Example of use class and constructors
 class Book {
   constructor(title, author, pages, status) {
     this.title = title;
@@ -6,6 +7,7 @@ class Book {
     this.status = status;
   }
 }
+// --------------------------------------
 // User of factory functions starts here
 function AddBookToList(book) {
   const list = document.querySelector('#book-list');
