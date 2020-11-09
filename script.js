@@ -1,3 +1,5 @@
+// This is example use of class
+// --------------------------------------
 class Book {
   constructor(title, author, pages, status) {
     this.title = title;
@@ -6,6 +8,8 @@ class Book {
     this.status = status;
   }
 }
+// ---------------------------------------
+
 
 function AddBookToList(book) {
   const list = document.querySelector('#book-list');
